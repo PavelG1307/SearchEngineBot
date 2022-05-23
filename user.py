@@ -16,6 +16,8 @@ class User:
     def get_file(self, data):
         print(f'Mode: {self.mode}')
         if self.mode is None:
+            if data == '/search':
+                return None, '/add_event - добавить мероприятие\n/search - поиск по ключевому слову'
             if data == '/add_event':
                 self.mode = 'In_project'
                 return None, 'Введите название проекта'
@@ -37,7 +39,7 @@ class User:
         if self.mode == 'In_project':
             self.project = data
             self.mode = 'In_date'
-            return None, 'Введите дату в формате **ГГГГ.ММ.ДД**'
+            return None, 'Введите дату в формате **ГГГГ.ММ.ДД**, "Сегодня" или "Вчера"'
 
         if self.mode == 'In_date':
             now = datetime.now()
