@@ -49,7 +49,7 @@ def main():
     users=[]
     mybot = Client(
         'bot',
-        bot_token='5206831411:AAH3_lnU98drAyS97s-MUfDjr5gYQnyT56E',
+        bot_token='5262570816:AAFRCimt_yWJVRkuHhm5Zyz3dNhQ1tTikRM',
         api_id=9696471,
         api_hash='6181f0cc6d734e181c2aec501d691eb9'
     )
