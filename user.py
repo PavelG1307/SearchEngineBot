@@ -26,6 +26,7 @@ class User:
                 return None, 'Введите слово для поиска'
 
         if self.mode == 'Search_keyword':
+            data = data.lower()
             self.cursor.execute(f"""SELECT name FROM Event JOIN KeyWord ON KeyWord.event = Event.rowid WHERE keyword LIKE '{data}'""")
             results = self.cursor.fetchall()
             print(results)
