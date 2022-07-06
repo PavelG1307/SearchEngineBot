@@ -26,14 +26,15 @@ class User:
                 return None, 'Введите слово для поиска'
 
         if self.mode == 'Search_keyword':
+            self.mode = None
             data = data.lower()
-            self.cursor.execute(f"""SELECT name FROM Event JOIN KeyWord ON KeyWord.event = Event.rowid WHERE keyword LIKE '{data}'""")
+            self.cursor.execute(f"""SELECT project, date, name FROM Event JOIN KeyWord ON KeyWord.event = Event.rowid WHERE keyword LIKE '{data}'""")
             results = self.cursor.fetchall()
             print(results)
             answer = ''
             if len(results)>0:
                 for result in results:
-                    answer += result[0] + '\n'
+                    answer += 'Винт 12/' + result[0] + '/**' + result[1] + '** ' + result[2] + '\n'
                 return None, answer
             else:
                 return None, 'Ничего не найдено'
